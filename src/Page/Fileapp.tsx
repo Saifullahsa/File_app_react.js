@@ -16,7 +16,7 @@ function Fileapp() {
   const [editDescription, setEditDescription] = useState("");
 
   useEffect(() => {
-    fetch("https://file-app-node-js.vercel.app/files")
+    fetch("https://file-app-node-js.onrender.com/files")
       .then((res) => res.json())
       .then((data) => setUploadedFiles(data))
       .catch(() => setMessage("Failed to fetch files"));
@@ -34,7 +34,7 @@ function Fileapp() {
     formData.append("description", description);
 
     try {
-      const res = await fetch("https://file-app-node-js.vercel.app/upload", {
+      const res = await fetch("https://file-app-node-js.onrender.com/upload", {
         method: "POST",
         body: formData,
       });
@@ -51,14 +51,14 @@ function Fileapp() {
   };
 
   const handleDownload = (id: number) => {
-    window.location.href = `https://file-app-node-js.vercel.app/files/${id}/download`;
+    window.location.href = `https://file-app-node-js.onrender.com/files/${id}/download`;
   };
 
   const handleDelete = async (id: number) => {
     if (!window.confirm("you want to delete this file?")) return;
 
     try {
-      await fetch(`https://file-app-node-js.vercel.app/files/${id}`, { method: "DELETE" });
+      await fetch(`https://file-app-node-js.onrender.com/files/${id}`, { method: "DELETE" });
       setUploadedFiles((prev) => prev.filter((f) => f.id !== id));
       setMessage("File deleted successfully!");
     } catch {
@@ -69,7 +69,7 @@ function Fileapp() {
   const handleEdit = async (id: number) => {
     if (editingFileId === id) {
       try {
-        const res = await fetch(`https://file-app-node-js.vercel.app/files/${id}`, {
+        const res = await fetch(`https://file-app-node-js.onrender.com/files/${id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ filename: editFilename, description: editDescription }),
@@ -161,16 +161,6 @@ function Fileapp() {
                     ) : (
                       file.filename
                     )}
-                  </td>
-                  <td className="border border-gray-400 px-4 py-2">
-                    <a
-                      href={`https://file-app-node-js.vercel.app/${file.pathname}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-blue-600 underline"
-                    >
-                      View File
-                    </a>
                   </td>
                   <td className="border border-gray-400 px-4 py-2">
                     {editingFileId === file.id ? (
