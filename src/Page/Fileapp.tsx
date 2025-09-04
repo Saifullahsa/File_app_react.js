@@ -164,7 +164,7 @@ function Fileapp() {
                   </td>
                   <td className="border border-gray-400 px-4 py-2">
                     <a
-                      href={`https://file-app-node-js.vercel.app${file.pathname}`}
+                      href={`https://file-app-node-js.vercel.app/${file.pathname}`}
                       target="_blank"
                       rel="noreferrer"
                       className="text-blue-600 underline"
