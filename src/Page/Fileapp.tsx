@@ -140,7 +140,6 @@ function Fileapp() {
               <tr>
                 <th className="border border-gray-400 px-4 py-2">ID</th>
                 <th className="border border-gray-400 px-4 py-2">File Name</th>
-                <th className="border border-gray-400 px-4 py-2">Path</th>
                 <th className="border border-gray-400 px-4 py-2">Description</th>
                 <th className="border border-gray-400 px-4 py-2">Uploaded At</th>
                 <th className="border border-gray-400 px-4 py-2">Actions</th>
